@@ -11,7 +11,17 @@ This project about student git history in website
 | Research alternatives
 
 ## Goals
-
+1. Выяснение и определение, что использовать
+2. Макет 
+3. Ui
+4. Заполнение сайта 
+5. База данных 
+6. Интеграция сайта 
+7.
+8.
+9.
+10. Завершение недороботок
+11. 
 ## Technologies
 In our project we use **Django**, **React JS**
 
