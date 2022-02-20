@@ -5,7 +5,7 @@
 + **Meiram Merey** (*190113009*) - UX-UI Designer (Github account: none)
 
 ## Project
-This project is yet-another clone of Instagram
+This project about student git history in website
 
 ## Alternatives / Market research
 | Research alternatives
@@ -13,21 +13,21 @@ This project is yet-another clone of Instagram
 ## Goals
 
 ## Technologies
-In our project we use **Laravel**, **VueJS**
+In our project we use **Django**, **React JS**
 
 ## Pages / Activities 
 We will have following pages:
-- Latest posts of friends
-- Posts from location of user
-- Take a photo page
-- Personal page
+- Statistics
+- List of users
+- Profile
+- Grading
 - Settings page
 
 ## Goals
-* What is the purpose of this project?
-* What are the problems it will solve?
+* Integration git system to project
+* Track every user git history
 * How will it streamline or improve the current process or facilitate a new process?
-* What is the product vision?
+* Very useful for tutor to track and see statistics about students
 
 ## User Personas
 *Write description of user personas here*  
