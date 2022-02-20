@@ -1,7 +1,8 @@
 # CSS 410 Research tools and methods
 ## Team members
-+ **Shadiyar Bakiyev** (*190103018*)- Project manager (GitHub account: **)
++ **Shadiyar Bakiyev** (*190103018*)- Project manager (GitHub account: none)
 + **Zhakhangir Bayanov** (*190113006*) - Fullstack Developer (GitHub account: *CarryMartes*)
++ **Meiram Merey** (*190113009*) - UX-UI Designer (Github account: none)
 
 ## Project
 This project is yet-another clone of Instagram
