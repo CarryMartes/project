@@ -3,7 +3,7 @@
 + **Shadiyar Bakiyev** (*190103018*)- Project manager (GitHub account: *ShadyKAB*)
 + **Zhakhangir Bayanov** (*190113006*) - Frontend Developer (GitHub account: *CarryMartes*)
 + **Meiram Merey** (*190113009*) - UX-UI Designer (Github account: none)
-+ **Sergey Grichik (*190103069*) - Backend Developer (Github account: none)
++ **Sergey Grichik** (*190103069*) - Backend Developer (Github account: none)
 
 ## Project
 This project about student git history in website
