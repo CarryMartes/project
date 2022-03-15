@@ -1,7 +1,16 @@
 > This folders will contain your reports
 ## Week by week plan
 |...|Shady|Shadiyar|
-
+> This folders will contain your reports
+## Week by week plan
+|...|Jet Lee|Jacky Chan|
+|---|---|---|
+|Week #3|Create home web page|Design home web page|
+|Week #4|Create database models|Analyze customer expectations|
+|Week #5|Create home web page|Design home web page|
+|Week #6|Create database models|Analyze customer expectations|
+|...|...|...|
+|Week #15|...|...|
 |Week #3-4|Proposal and Update ReadMe file|All team members|
 |Week #5|UX, User flow, and Integration with Git|Merey, Zhakhangir and Sergey|
 |Week #6|Design|Merey|
