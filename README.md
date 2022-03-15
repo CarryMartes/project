@@ -25,7 +25,7 @@ Having a large number of all sorts of platforms that help teachers evaluate stud
 * SDU Portal
 
 ## Technologies
-In our project we use **Django**, **React JS**
+In our project we use **Django**, **React JS**, **Node JS**
 
 ## Pages / Activities 
 We will have following pages:
