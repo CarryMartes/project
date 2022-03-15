@@ -65,14 +65,14 @@ We will have following pages:
 * How will it streamline or improve the current process or facilitate a new process?
 * Very useful for tutor to track and see statistics about students
 
-## User Personas
-*Write description of user personas here*  
-
-## User stories
-*Write your user stories here*
+## User Personas and Stories
+![image](https://user-images.githubusercontent.com/92595962/158444716-ab74f2dd-a556-41f6-893c-de7a955baa98.png)
 
 ## Sitemap, Page descriptions
-*Display sitemap here*
+![image](https://user-images.githubusercontent.com/92595962/158445229-f832afb0-4b97-41eb-b862-5cbbb793e338.png)
+![image](https://user-images.githubusercontent.com/92595962/158445409-3d5572e6-4d67-42af-9cc5-21ebd510c862.png)
+![image](https://user-images.githubusercontent.com/92595962/158445474-d4b7e9b5-90b0-4797-85b2-bd41885bcbcf.png)
+
 
 ## Non-Functional requirements
 * The project must be completed before the 15th week.
@@ -83,10 +83,15 @@ We will have following pages:
 
 ## Risks
 There is a possibility that integration with github will be difficult to implement.
-If it doesn’t work out, then you will have to build everything from scratch.
+If it doesn’t work out, then we will have to build everything from scratch.
 
 ## Mockups, Wireframes
-*Put here images of your wireframes*
+![image](https://user-images.githubusercontent.com/92595962/158445601-d8e5b6fe-51db-42fe-8420-6b2b5afc75d7.png)
+![image](https://user-images.githubusercontent.com/92595962/158445653-339422dc-9dd6-4c7b-8c07-9a7b0931905a.png)
+![image](https://user-images.githubusercontent.com/92595962/158445698-a9806488-524d-4cfb-8d0d-6ca641f74b12.png)
+
 
 ## Future iterations
-*Write your future iterations*
+* Monetization
+* Paid tests for students
+* Issuance of certificates
