@@ -8,13 +8,23 @@
 ## Project
 This project about student git history in website
 
+## Goals
+*What is the purpose?*
+Our main goal is to help teachers with the most important and difficult part of the semester - grading.
+
+*What problem does this project solve?*
+Since there are a lot of students, inserting grades is a very time-consuming process. But with our project, teachers will be able to grade a hundred times faster, saving a lot of time accordingly.
+
+*What is the vision?*
+Having a large number of all sorts of platforms that help teachers evaluate students. We decided to automate everything and create a set of all platforms in one.
+
 ## Alternatives / Market research
 * Moodle
 * Google Drive
 * Google Classroom
 * SDU Portal
 
-## Goals
+## Project's tasks
 0. Brain storm (All team members)
 1. Скелет сайта (Merey)
 2. Интеграция с гитом (Zhakhangir and Sergey)
@@ -49,29 +59,31 @@ We will have following pages:
 - Grading
 - Settings page
 
-## Goals
+## Goals of the Project
 * Integration git system to project
 * Track every user git history
 * How will it streamline or improve the current process or facilitate a new process?
 * Very useful for tutor to track and see statistics about students
-* Automation of the grading process
 
 ## User Personas
 *Write description of user personas here*  
 
 ## User stories
-
 *Write your user stories here*
 
 ## Sitemap, Page descriptions
-
 *Display sitemap here*
 
 ## Non-Functional requirements
-*Write non-functional requirements*
+The project must be completed before the 15th week.
+The project must be integrated with github.
+The project must be written in Java and Python.
+The project must work in all modern browsers.
+The project must be responsive (work well and look good on all screen sizes)
 
 ## Risks
-*What are the risks?*
+There is a possibility that integration with github will be difficult to implement.
+If it doesn’t work out, then you will have to build everything from scratch.
 
 ## Mockups, Wireframes
 *Put here images of your wireframes*
