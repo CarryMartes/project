@@ -75,11 +75,11 @@ We will have following pages:
 *Display sitemap here*
 
 ## Non-Functional requirements
-*The project must be completed before the 15th week.
-*The project must be integrated with github.
-*The project must be written in Java and Python.
-*The project must work in all modern browsers.
-*The project must be responsive (work well and look good on all screen sizes)
+* The project must be completed before the 15th week.
+* The project must be integrated with github.
+* The project must be written in Java and Python.
+* The project must work in all modern browsers.
+* The project must be responsive (work well and look good on all screen sizes)
 
 ## Risks
 There is a possibility that integration with github will be difficult to implement.
