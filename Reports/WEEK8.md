@@ -8,3 +8,4 @@
 # Meiram Merey
 
 # Sergey Grichik 
+* Studied documentation and nodejs technology
