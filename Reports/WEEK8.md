@@ -6,5 +6,6 @@
 # Zhakhangir Bayanov
 
 # Meiram Merey
+* Created user profiles
 
 # Sergey Grichik 
