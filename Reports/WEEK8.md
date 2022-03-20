@@ -6,6 +6,7 @@
 # Zhakhangir Bayanov
 
 # Meiram Merey
+* Created user profiles
 
 # Sergey Grichik 
 * Studied documentation and nodejs technology

@@ -9,6 +9,7 @@
  
 # Meiram Merey
 * ReadMe File updating
+* Creating Brief of a project
  
 # Sergey Grichik 
 * ReadMe File updating
