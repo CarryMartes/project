@@ -7,6 +7,8 @@
 * Add Github Api to project
 
 # Meiram Merey
+* Gathered refernces
+* Created a moodboard
 
 
 # Sergey Grichik
