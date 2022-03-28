@@ -8,6 +8,12 @@
 ## Project
 This project about student git history in website
 
+## Alternatives / Market research
+* Moodle
+* Google Drive
+* Google Classroom
+* SDU Portal
+
 ## Goals
 *What is the purpose?*
 Our main goal is to help teachers with the most important and difficult part of the semester - grading.
@@ -17,23 +23,6 @@ Since there are a lot of students, inserting grades is a very time-consuming pro
 
 *What is the vision?*
 Having a large number of all sorts of platforms that help teachers evaluate students. We decided to automate everything and create a set of all platforms in one.
-
-## Alternatives / Market research
-* Moodle
-* Google Drive
-* Google Classroom
-* SDU Portal
-
-## Technologies
-In our project we use **Django**, **React JS**, **Node JS**
-
-## Pages / Activities 
-We will have following pages:
-- Statistics
-- List of users
-- Profile
-- Grading
-- Settings page
 
 ## Goals of the Project
 * Integration git system to project
@@ -49,6 +38,21 @@ We will have following pages:
 ![image](https://user-images.githubusercontent.com/92595962/158445409-3d5572e6-4d67-42af-9cc5-21ebd510c862.png)
 ![image](https://user-images.githubusercontent.com/92595962/158445474-d4b7e9b5-90b0-4797-85b2-bd41885bcbcf.png)
 
+## Pages / Activities 
+We will have following pages:
+- Statistics
+- List of users
+- Profile
+- Grading
+- Settings page
+
+## Technologies
+In our project we use **Django**, **React JS**, **Node JS**
+
+## Mockups, Wireframes
+![image](https://user-images.githubusercontent.com/92595962/158445601-d8e5b6fe-51db-42fe-8420-6b2b5afc75d7.png)
+![image](https://user-images.githubusercontent.com/92595962/158445653-339422dc-9dd6-4c7b-8c07-9a7b0931905a.png)
+![image](https://user-images.githubusercontent.com/92595962/158445698-a9806488-524d-4cfb-8d0d-6ca641f74b12.png)
 
 ## Non-Functional requirements
 * The project must be completed before the 15th week.
@@ -60,12 +64,6 @@ We will have following pages:
 ## Risks
 There is a possibility that integration with github will be difficult to implement.
 If it doesn’t work out, then we will have to build everything from scratch.
-
-## Mockups, Wireframes
-![image](https://user-images.githubusercontent.com/92595962/158445601-d8e5b6fe-51db-42fe-8420-6b2b5afc75d7.png)
-![image](https://user-images.githubusercontent.com/92595962/158445653-339422dc-9dd6-4c7b-8c07-9a7b0931905a.png)
-![image](https://user-images.githubusercontent.com/92595962/158445698-a9806488-524d-4cfb-8d0d-6ca641f74b12.png)
-
 
 ## Future iterations
 * Monetization
