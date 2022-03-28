@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/";
+import "./styles/index.scss";
 import { Routing } from "pages/";
 import { withProviders } from "./providers";
 
