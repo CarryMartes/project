@@ -1,7 +1,7 @@
 import React from "react";
-import "./index.css";
-import {Routing} from "pages/";
-import {withProviders} from "./providers";
+import "./styles/";
+import { Routing } from "pages/";
+import { withProviders } from "./providers";
 
 function App() {
   return (

@@ -9,3 +9,9 @@ class UserProfile(models.Model):
 
     def __str__(self) -> str:
         return self.nickname
+
+class Student(UserProfile):
+    stud_id = models.CharField(max_length=200)
+    
+class Teacher(UserProfile):
+    subject = models.CharField(max_length=200)
