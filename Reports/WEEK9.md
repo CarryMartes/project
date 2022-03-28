@@ -5,7 +5,7 @@
 
 # Zhakhangir Bayanov
 * Authorization with rest framework
-* 
+
 # Meiram Merey
 * Added and updated the Wireframe
 
