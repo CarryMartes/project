@@ -1,7 +1,7 @@
 # Bakiyev Shadiyar
 * Reading the "Scrum. Revolutionary project management method" book
 * Uploading the audio of our meating on Youtube
-* Copirating
+* Copyrating
 
 # Zhakhangir Bayanov
 * Authorization with rest framework
