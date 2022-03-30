@@ -4,7 +4,6 @@
 ## Shadiyar
 |Week|Action|
 |---|---|
-|Week #3-4|Proposal and Update ReadMe file|
 |Week #5|Make a plan and solve the critical path|
 |Week #6|Organization of a meeting with the team, distribution of tasks among team members|
 |Week #7|Create a table of week by week plan|
@@ -19,7 +18,6 @@
 ## Zhakhangir
 |Week|Action|
 |---|---|
-|Week #3-4|Proposal and Update ReadMe file|
 |Week #5|Сhoose project tools (React, Django)|
 |Week #6|Choose database(Postgresql)|
 |Week #7-9|Install material design and create auth forms|
@@ -33,7 +31,6 @@
 ## Merey
 |Week|Action|
 |---|---|
-|Week #3-4|Proposal and Update ReadMe file|
 |Week #5|UX, User flow, and Integration with Git|
 |Week #6|Design, create brief of a project|
 |Week #7|Create a moodboard|
@@ -49,7 +46,6 @@
 ## Sergey
 |Week|Action|
 |---|---|
-|Week #3-4|Proposal and Update ReadMe file|
 |Week #5|Analyze github API documentation to switch to project|
 |Week #6|Make DDL for DB tables|
 |Week #7-9|Start creating authorization and migrations(tables in backend)|
