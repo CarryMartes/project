@@ -6,7 +6,7 @@
 |---|---|
 |Week #5|Make a plan and solve the critical path|
 |Week #6|Organization of a meeting with the team, distribution of tasks among team members|
-|Week #7|Create a table of week by week plan|
+|Week #7|Learn some agile methodologies|
 |Week #8|Post meatings on Youtube|
 |Week #9-10|Copyrating|
 |Week #11||
