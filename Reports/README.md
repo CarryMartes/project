@@ -8,9 +8,9 @@
 |Week #7|Learn some agile methodologies|Install material design and create auth forms|Create a moodboard|Start creating authorization and migrations(tables in backend)|
 |Week #8|Post meatings on Youtube|Install material design and create auth forms|Create user profiles|Start creating authorization and migrations(tables in backend)|
 |Week #9|Copyrating|Install material design and create auth forms|Add Wireframe|Start creating authorization and migrations(tables in backend)|
-|Week #10|Copyrating|:c|:c|:c|
-|Week #11|:c|:c|:c|:c|
-|Week #12|:c|:c|:c|:c|
+|Week #10|Copyrating|Implement profile, students, teachers pages|:c|Integrate requests with github api and send it to frontend, Make paginations, get, post forms, |
+|Week #11|:c|Implement graphics and Quizes in frontend|:c|Prepare quizes form for teachers and students|
+|Week #12|:c|Make dark and light modes with other style designs|:c|Implement tech debts with maybe new features|
 |Week #13|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|
 |Week #14|Presentation|Presentation|Presentation|Presentation|
 |Week #15|Defend our project|Defend our project|Defend our project|Defend our project|
