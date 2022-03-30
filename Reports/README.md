@@ -1,7 +1,7 @@
 > This folders will contain your reports
 ## Week by week plan
 
-|Week/Name|Shadiyar|Zhakhangir|Merey|Sergey|
+|Week/Name|Shadiyar Bakiyev|Zhakhangir Bayanov|Merey Meiram|Sergey Grinchik|
 |---|---|---|---|---|
 |Week #5|Make a plan and solve the critical path|Сhoose project tools (React, Django)|UX, User flow, and Integration with Git|Analyze github API documentation to switch to project|
 |Week #6|Organization of a meeting with the team, distribution of tasks among team members|Choose database(Postgresql)|Design, create brief of a project|Make DDL for DB tables|
