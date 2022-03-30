@@ -11,8 +11,8 @@
 |Week #10|Copyrating|:c|:c|:c|
 |Week #11|:c|:c|:c|:c|
 |Week #12|:c|:c|:c|:c|
-|Week #13|Presentation|Presentation|Presentation|Presentation|
-|Week #14|Documentation|Documentation|Documentation|Documentation|
+|Week #13|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|
+|Week #14|Presentation|Presentation|Presentation|Presentation|
 |Week #15|Defend our project|Defend our project|Defend our project|Defend our project|
 
 ## Shadiyar
