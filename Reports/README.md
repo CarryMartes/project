@@ -14,7 +14,7 @@
 |Week #15|Defendour project|All team members|
 ## Zhakhangir
 |Week|Action|
-|---|---|---|
+|---|---|
 |Week #3-4|Proposal and Update ReadMe file|
 |Week #5|Analyze github API documentation to swith to project && choose project tools (React, Django)|
 |Week #6|Make DDL for DB tables && choose database(Postgresql)|
