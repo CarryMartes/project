@@ -15,7 +15,7 @@
 |Week #14|Documentation|Documentation|Documentation|Documentation|
 |Week #15|Defend our project|Defend our project|Defend our project|Defend our project|
 
-<!-- ## Shadiyar
+## Shadiyar
 |Week|Action|
 |---|---|
 |Week #5|Make a plan and solve the critical path|
@@ -69,17 +69,3 @@
 |Week #13|Presentation|
 |Week #14|Documentation|
 |Week #15|Defend our project|
- -->
-<!-- |Week|Action|Who will do|
-|---|---|---|
-|Week #3-4|Proposal and Update ReadMe file|All team members|
-|Week #5|UX, User flow, and Integration with Git|All team members|
-|Week #6|Сreate react client app with express node js|Zhakhangir and Sergey|
-|Week #7|Add Github Api to project|Zhakhangir and Sergey|
-|Week #8|Start backend|Zhakhangir and Sergey|
-|Week #11|Testing|All team members|
-|Week #12|Deploy of project on server|Zhakhangir and Sergey|
-|Week #13|Presentation|All team members|
-|Week #14|Documentation|All team members|
-|Week #15|Defend our project|All team members| -->
-
