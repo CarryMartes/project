@@ -1,25 +1,39 @@
-import Box from "@mui/material/Box";
-import { Button, TextField } from "@mui/material";
-
+import { Button, Stack, TextField } from "@mui/material";
+import { withAuth } from "..";
+import { Link } from "react-router-dom";
 function Login() {
   return (
-    <div className="d-flex">
-      <Box
-        component="form"
+    <Stack spacing={2}>
+      <h2>Welcome back!</h2>
+      <TextField label="Nickname" id="username" variant="standard" />
+      <TextField
+        label="Password"
+        id="password"
+        type={"password"}
+        variant="standard"
+      />
+      <Button
+        variant="contained"
+        color="primary"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "300px" },
-          "& .MuiButton-root": { m: 1, p: 1 },
+          textTransform: "none",
+          marginTop: "15px !important",
         }}
-        noValidate
-        autoComplete="off"
       >
-        <TextField label="Username" id="username" variant="outlined" />
-        <TextField label="Password" id="password" variant="outlined" />
-        <Button variant="contained" color="primary">
-          Sign in
-        </Button>
-      </Box>
-    </div>
+        Log in
+      </Button>
+      <p>
+        Don't have an account?
+        <Link
+          to={{
+            pathname: "/signup",
+          }}
+        >
+          Sign up
+        </Link>
+      </p>
+    </Stack>
   );
 }
-export default Login;
+
+export default withAuth(Login);
