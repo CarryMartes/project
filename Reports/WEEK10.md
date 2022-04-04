@@ -1,6 +1,6 @@
 # Bakiyev Shadiyar
 * Watched LABA's Project Managment course
-* Coopirating
+* Copyrating
 * Arranging a meeting with a teacher
 
 # Zhakhangir Bayanov
