@@ -9,8 +9,8 @@
 |Week #8|Post meatings on Youtube|Install material design and create auth forms|Create user profiles|Start creating authorization and migrations(tables in backend)|
 |Week #9|Copyrating|Install material design and create auth forms|Add Wireframe|Start creating authorization and migrations(tables in backend)|
 |Week #10|Copyrating|Implement profile, students, teachers pages|:c|Integrate requests with github api and send it to frontend, Make paginations, get, post forms, |
-|Week #11|:c|Implement graphics and Quizes in frontend|:c|Prepare quizes form for teachers and students|
-|Week #12|:c|Make dark and light modes with other style designs|:c|Implement tech debts with maybe new features|
+|Week #11|Preparing a project Documentation|Implement graphics and Quizes in frontend|Preparing a project Documentation|Prepare quizes form for teachers and students|
+|Week #12|Preparing a project Documentation|Make dark and light modes with other style designs|Preparing a project Documentation|Implement tech debts with maybe new features|
 |Week #13|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|
 |Week #14|Presentation|Presentation|Presentation|Presentation|
 |Week #15|Defend our project|Defend our project|Defend our project|Defend our project|
