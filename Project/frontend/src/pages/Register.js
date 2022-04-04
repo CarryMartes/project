@@ -50,7 +50,7 @@ export default function Register() {
 
       <SectionStyle sx={{ display: { xs: 'none', md: 'flex' } }}>
         <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-          Manage the job more effectively with Minimal
+          Manage the students more effectively with GitTech
         </Typography>
         <img alt="register" src="/static/illustrations/illustration_register.png" />
       </SectionStyle>
@@ -71,7 +71,6 @@ export default function Register() {
           <RegisterForm />
 
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-            By registering, I agree to Minimal&nbsp;
             <Link underline="always" color="textPrimary">
               Terms of Service
             </Link>

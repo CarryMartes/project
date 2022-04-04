@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Jaydon Frankie',
-  email: 'demo@minimals.cc',
+  displayName: 'Meiram Bakiyev Sergeyvich',
+  email: 'deme@gittech.com',
   photoURL: '/static/mock-images/avatars/avatar_default.jpg'
 };
 

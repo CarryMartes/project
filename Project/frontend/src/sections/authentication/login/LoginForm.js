@@ -84,10 +84,6 @@ export default function LoginForm() {
             control={<Checkbox {...getFieldProps('remember')} checked={values.remember} />}
             label="Remember me"
           />
-
-          <Link component={RouterLink} variant="subtitle2" to="#" underline="hover">
-            Forgot password?
-          </Link>
         </Stack>
 
         <LoadingButton
