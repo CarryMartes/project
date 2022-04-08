@@ -8,3 +8,4 @@ Implement graphics and Quizes in frontend
 # Meiram Merey
 
 # Sergey Grichik 
+Prepare quizes form for teachers and students
