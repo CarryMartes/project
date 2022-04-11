@@ -1,18 +1,31 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import { useNavigate } from 'react-router-dom';
 // material
-import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
+import {
+  Stack,
+  TextField,
+  IconButton,
+  InputAdornment,
+  CircularProgress,
+  Avatar,
+  Autocomplete,
+  Typography
+} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // component
 import Iconify from '../../../components/Iconify';
+import { debounce } from 'src/shared/lib/debounce';
+import { getUsersList } from '../../../shared/api/request/users';
 
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -39,6 +52,16 @@ export default function RegisterForm() {
   });
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
+
+  const searchUsers = (e) => {
+    getUsersList({
+      username: e.target.value
+    }).then((res) => {
+      setUsers([{ ...res.data, label: res.data.username }]);
+    });
+  };
+
+  const debouncer = useMemo(() => debounce(searchUsers, 400));
 
   return (
     <FormikProvider value={formik}>
@@ -72,12 +95,38 @@ export default function RegisterForm() {
             helperText={touched.email && errors.email}
           />
 
-          <TextField
-            fullWidth
-            autoComplete="username"
-            type="text"
-            label="Gihub nickname"
-            {...getFieldProps('nickname')}
+          <Autocomplete
+            disablePortal
+            loading={loading}
+            id="combo-box-demo"
+            options={users}
+            sx={{ width: '100%' }}
+            getOptionLabel={(result) => `${result.name}`}
+            renderOption={(props, option) => (
+              <li {...props}>
+                <Avatar src={option.avatar_url} />
+                <Typography>{option.name}</Typography>
+              </li>
+            )}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Github username"
+                onInput={debouncer}
+                id="github_username"
+                {...getFieldProps('nickname')}
+                variant="outlined"
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <Fragment>
+                      {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                      {params.InputProps.endAdornment}
+                    </Fragment>
+                  )
+                }}
+              />
+            )}
           />
 
           <TextField
