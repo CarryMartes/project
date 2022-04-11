@@ -6,3 +6,4 @@ Implement graphics and Quizes in frontend
 * Added more user pages
 
 # Sergey Grichik 
+Prepare quizes form for teachers and students
