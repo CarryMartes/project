@@ -29,7 +29,8 @@ export default function RegisterForm() {
       firstName: '',
       lastName: '',
       email: '',
-      password: ''
+      password: '',
+      nickname: ''
     },
     validationSchema: RegisterSchema,
     onSubmit: () => {
@@ -69,6 +70,14 @@ export default function RegisterForm() {
             {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
+          />
+
+          <TextField
+            fullWidth
+            autoComplete="username"
+            type="text"
+            label="Gihub nickname"
+            {...getFieldProps('nickname')}
           />
 
           <TextField
