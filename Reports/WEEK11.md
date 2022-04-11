@@ -1,7 +1,7 @@
 # Bakiyev Shadiyar
 
 # Zhakhangir Bayanov
-
+Implement graphics and Quizes in frontend	
 # Meiram Merey
 * Added more user pages
 
