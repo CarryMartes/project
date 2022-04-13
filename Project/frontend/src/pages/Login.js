@@ -8,6 +8,8 @@ import AuthLayout from '../layouts/AuthLayout';
 import Page from '../components/Page';
 import { LoginForm } from '../sections/authentication/login';
 import AuthSocial from '../sections/authentication/AuthSocial';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -39,6 +41,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Login() {
+  const status = useSelector((state) => state.authReducer['login'].isStudent);
   return (
     <RootStyle title="Login | Git tech">
       <AuthLayout>
@@ -63,7 +66,7 @@ export default function Login() {
             </Typography>
             <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
           </Stack>
-          <AuthSocial />
+          {/* <AuthSocial page="login" /> */}
 
           <LoginForm />
 

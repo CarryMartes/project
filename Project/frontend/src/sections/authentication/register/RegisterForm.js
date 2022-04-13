@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import { useNavigate } from 'react-router-dom';
 // material
@@ -54,14 +54,24 @@ export default function RegisterForm() {
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   const searchUsers = (e) => {
+    setLoading(true);
     getUsersList({
       username: e.target.value
     }).then((res) => {
-      setUsers([{ ...res.data, label: res.data.username }]);
+      if (res.data.message === 'Not Found') {
+        setUsers([]);
+        return;
+      }
+      setLoading(false);
+      setUsers([{ ...res.data, label: res.data.username || res.data.login }]);
     });
   };
 
-  const debouncer = useMemo(() => debounce(searchUsers, 400));
+  useEffect(() => {
+    console.log(users, 'ASKASK');
+  }, [users]);
+
+  const debouncer = useMemo(() => debounce(searchUsers, 400), []);
 
   return (
     <FormikProvider value={formik}>
@@ -96,7 +106,6 @@ export default function RegisterForm() {
           />
 
           <Autocomplete
-            disablePortal
             loading={loading}
             id="combo-box-demo"
             options={users}
@@ -119,10 +128,10 @@ export default function RegisterForm() {
                 InputProps={{
                   ...params.InputProps,
                   endAdornment: (
-                    <Fragment>
+                    <>
                       {loading ? <CircularProgress color="inherit" size={20} /> : null}
                       {params.InputProps.endAdornment}
-                    </Fragment>
+                    </>
                   )
                 }}
               />
