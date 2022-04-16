@@ -11,6 +11,12 @@ export function authReducer(state = authState, action) {
         }
       };
     }
+    case actions.IS_AUTH: {
+      return {
+        ...state,
+        isAuth: action.payload
+      };
+    }
     default:
       return state;
   }

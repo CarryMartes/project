@@ -6,3 +6,10 @@ export const changeStatus = (payload) => {
     payload
   };
 };
+
+export const changeAuth = (payload) => {
+  return {
+    type: actions.IS_AUTH,
+    payload
+  };
+};

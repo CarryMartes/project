@@ -15,17 +15,19 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // component
-import Iconify from '../../../components/Iconify';
+import Iconify from 'src/components/Iconify';
 import { debounce } from 'src/shared/lib/debounce';
-import { getUsersList } from '../../../shared/api/request/users';
+import { getUsersList, signUp } from 'src/shared/api/request/users';
+import { useSelector } from 'react-redux';
 
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const status = useSelector((state) => state.authReducer['signup'].isStudent);
+  const navigate = useNavigate();
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -34,6 +36,7 @@ export default function RegisterForm() {
       .required('First name required'),
     lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Last name required'),
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
+    nickname: Yup.string().required('Please fill github nickname'),
     password: Yup.string().required('Password is required')
   });
 
@@ -47,7 +50,9 @@ export default function RegisterForm() {
     },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+      signUp({ ...formik.values, status: status, username: formik.values.nickname }).then((res) => {
+        navigate('/login');
+      });
     }
   });
 
@@ -57,19 +62,20 @@ export default function RegisterForm() {
     setLoading(true);
     getUsersList({
       username: e.target.value
-    }).then((res) => {
-      if (res.data.message === 'Not Found') {
-        setUsers([]);
-        return;
-      }
-      setLoading(false);
-      setUsers([{ ...res.data, label: res.data.username || res.data.login }]);
-    });
+    })
+      .then((res) => {
+        setUsers([
+          {
+            ...res,
+            label: res.username ? res.username : res.login,
+            name: res.name ? res.name : res.login
+          }
+        ]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
-
-  useEffect(() => {
-    console.log(users, 'ASKASK');
-  }, [users]);
 
   const debouncer = useMemo(() => debounce(searchUsers, 400), []);
 
@@ -123,6 +129,8 @@ export default function RegisterForm() {
                 label="Github username"
                 onInput={debouncer}
                 id="github_username"
+                error={Boolean(touched.nickname && errors.nickname)}
+                helperText={touched.nickname && errors.nickname}
                 {...getFieldProps('nickname')}
                 variant="outlined"
                 InputProps={{

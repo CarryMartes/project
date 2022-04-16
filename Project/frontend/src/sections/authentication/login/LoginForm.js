@@ -15,27 +15,46 @@ import {
 import { LoadingButton } from '@mui/lab';
 // component
 import Iconify from '../../../components/Iconify';
+import { login } from 'src/shared/api/request/users';
+import { useDispatch } from 'react-redux';
+import { actions } from 'src/shared/store/users/constants';
 
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
+    username: Yup.string().required('Username is required'),
     password: Yup.string().required('Password is required')
   });
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      username: '',
       password: '',
       remember: true
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+      login({ ...formik.values })
+        .then(() => {
+          dispatch({
+            type: actions.IS_AUTH,
+            payload: true
+          });
+          navigate('/dashboard/app');
+        })
+        .catch((err) => {
+          if (err.response.status === 401) {
+            formik.setErrors({
+              username: "User doesn't exist"
+            });
+          }
+          formik.setSubmitting(false);
+        });
     }
   });
 
@@ -52,11 +71,11 @@ export default function LoginForm() {
           <TextField
             fullWidth
             autoComplete="username"
-            type="email"
-            label="Email address"
-            {...getFieldProps('email')}
-            error={Boolean(touched.email && errors.email)}
-            helperText={touched.email && errors.email}
+            type="text"
+            label="Username"
+            {...getFieldProps('username')}
+            error={Boolean(touched.username && errors.username)}
+            helperText={touched.username && errors.username}
           />
 
           <TextField

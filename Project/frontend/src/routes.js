@@ -11,18 +11,21 @@ import Products from './pages/Products';
 import Blog from './pages/Blog';
 import User from './pages/User';
 import NotFound from './pages/Page404';
+import { useSelector } from 'react-redux';
 
 // ----------------------------------------------------------------------
 
-function PrivateRoute({ component, authed, ...rest }) {
-  return authed === true ? <component /> : <Navigate to="/login" />;
+function PrivateRoute({ component, ...rest }) {
+  const isAuthed = useSelector((state) => state.authReducer['isAuth']);
+  console.log(isAuthed, 'IS AUTh');
+  return isAuthed ? component : <Navigate to="/login" />;
 }
 
 export default function Router() {
   return useRoutes([
     {
       path: '/dashboard',
-      element: <PrivateRoute component={DashboardLayout} authed={false} />,
+      element: <PrivateRoute component={<DashboardLayout />} />,
       children: [
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
