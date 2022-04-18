@@ -23,8 +23,8 @@
 |Week #7|Learn some agile methodologies|
 |Week #8|Post meatings on Youtube|
 |Week #9-10|Copyrating|
-|Week #11||
-|Week #12||
+|Week #11|Preparing a project Documentation|
+|Week #12|Preparing a project Documentation|
 |Week #13|Presentation|
 |Week #14|Documentation|
 |Week #15|Defend our project|
