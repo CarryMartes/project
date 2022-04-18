@@ -45,8 +45,8 @@
 ## Merey
 |Week|Action|
 |---|---|
-|Week #5|UX, User flow, and Integration with Git|
-|Week #6|Design, create brief of a project|
+|Week #5|Create figma file, manage access control to it, make a "Project Brief" page and give it to PM, search inspirations|
+|Week #6|Create a "Moodboard" page and add found inspirations to it. Need to search more. Open "Sitemap" page and search for templates for it.|
 |Week #7|Create a moodboard|
 |Week #8|Create user profiles|
 |Week #9|Add Wireframe|
