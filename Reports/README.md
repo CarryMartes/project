@@ -47,14 +47,14 @@
 |---|---|
 |Week #5|Create figma file, manage access control to it, make a "Project Brief" page and give it to PM, search inspirations|
 |Week #6|Create a "Moodboard" page and add found inspirations to it. Need to search more. Open "Sitemap" page and search for templates for it.|
-|Week #7|Create a moodboard|
-|Week #8|Create user profiles|
-|Week #9|Add Wireframe|
-|Week #10|Design addition|
-|Week #11|Preparing a project Documentation|
-|Week #12|Preparing a project Documentation|
-|Week #13|Presentation|
-|Week #14|Documentation|
+|Week #7|Make a sitemap with chosen template: write down to paper and implement to figma.|
+|Week #8|Add "Page Descriptions", create "User Profiles"|
+|Week #9|Begin to make the skeleton of a site - "Wireframe"|
+|Week #10|Make the wireframe of a landing page, registration and user profiles looking at moodboard|
+|Week #11|Start to make an UI of a site: define project colors, fonts, sizes and button styles.|
+|Week #12|Begin "coloring" the wireframe with project style|
+|Week #13|Discuss design with teammates and work on additional pages and functionalities. Implement them|
+|Week #14|Polish the site. Help coders to implement ready design|
 |Week #15|Defend our project|
 
 ## Sergey
