@@ -3,17 +3,17 @@
 
 |Week/Name|Shadiyar Bakiyev|Zhakhangir Bayanov|Merey Meiram|Sergey Grichik|
 |---|---|---|---|---|
-|Week #5|Make a plan and solve the critical path|Сhoose project tools (React, Django)|UX, User flow, and Integration with Git|Analyze github API documentation to switch to project|
-|Week #6|Organization of a meeting with the team, distribution of tasks among team members|Choose database(Postgresql)|Design, create brief of a project|Make DDL for DB tables|
-|Week #7|Learn some agile methodologies|Install material design and create auth forms|Create a moodboard|Start creating authorization and migrations(tables in backend)|
-|Week #8|Post meatings on Youtube|Install material design and create auth forms|Create user profiles|Start creating authorization and migrations(tables in backend)|
-|Week #9|Copyrating|Install material design and create auth forms|Add Wireframe|Start creating authorization and migrations(tables in backend)|
-|Week #10|Copyrating|Implement profile, students, teachers pages|Design addition|Integrate requests with github api and send it to frontend, Make paginations, get, post forms, |
-|Week #11|Preparing a project Documentation|Implement graphics and Quizes in frontend|Preparing a project Documentation|Prepare quizes form for teachers and students|
-|Week #12|Preparing a project Documentation|Make dark and light modes with other style designs|Preparing a project Documentation|Implement tech debts with maybe new features|
-|Week #13|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|Preparing a project presentation|
-|Week #14|Presentation|Presentation|Presentation|Presentation|
-|Week #15|Defend our project|Defend our project|Defend our project|Defend our project|
+|Week #5|Make a plan and solve the critical path|Сhoose project tools (React, Django)|Create figma file, manage access control to it, make a "Project Brief" page and give it to PM, search inspirations|Analyze github API documentation to switch to project|
+|Week #6|Organization of a meeting with the team, distribution of tasks among team members|Choose database(Postgresql)|Create a "Moodboard" page and add found inspirations to it. Need to search more. Open "Sitemap" page and search for templates for it.|Make DDL for DB tables|
+|Week #7|Learn some agile methodologies|Install material design and create auth forms|Make a sitemap with chosen template: write down to paper and implement to figma.|Start creating authorization and migrations(tables in backend)|
+|Week #8|Post meatings on Youtube|Install material design and create auth forms|Add "Page Descriptions", create "User Profiles"|Start creating authorization and migrations(tables in backend)|
+|Week #9|Copyrating|Install material design and create auth forms|Begin to make the skeleton of a site - "Wireframe": search for templates and build wireframe|Start creating authorization and migrations(tables in backend)|
+|Week #10|Copyrating|Implement profile, students, teachers pages|Make the wireframe of a landing page, registration and user profiles looking at moodboard|Integrate requests with github api and send it to frontend, Make paginations, get, post forms, |
+|Week #11|Preparing a project Documentation|Implement graphics and Quizes in frontend|Start to make an UI of a site: define project colors, fonts, sizes and button styles.|Prepare quizes form for teachers and students|
+|Week #12|Preparing a project Documentation|Make dark and light modes with other style designs|Begin "coloring" the wireframe with project style|Implement tech debts with maybe new features|
+|Week #13|Preparing a project presentation|Preparing a project presentation|Discuss design with teammates and work on additional pages and functionalities. Implement them. Make a UX research with potential real users Take surveys.|Preparing a project presentation|
+|Week #14|Presentation|Presentation|Polish the site. Help coders to implement ready design. Presentation|Presentation|
+|Week #15|Defend our project successfully|Defend our project successfully|Defend our project successfully|Defend our project successfully|
 
 ## Shadiyar
 |Week|Action|
@@ -49,11 +49,11 @@
 |Week #6|Create a "Moodboard" page and add found inspirations to it. Need to search more. Open "Sitemap" page and search for templates for it.|
 |Week #7|Make a sitemap with chosen template: write down to paper and implement to figma.|
 |Week #8|Add "Page Descriptions", create "User Profiles"|
-|Week #9|Begin to make the skeleton of a site - "Wireframe"|
+|Week #9|Begin to make the skeleton of a site - "Wireframe": search for templates and build wireframe|
 |Week #10|Make the wireframe of a landing page, registration and user profiles looking at moodboard|
 |Week #11|Start to make an UI of a site: define project colors, fonts, sizes and button styles.|
 |Week #12|Begin "coloring" the wireframe with project style|
-|Week #13|Discuss design with teammates and work on additional pages and functionalities. Implement them|
+|Week #13|Discuss design with teammates and work on additional pages and functionalities. Implement them. Make a UX research with potential real users Take surveys.|
 |Week #14|Polish the site. Help coders to implement ready design|
 |Week #15|Defend our project|
 
