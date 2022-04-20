@@ -10,9 +10,9 @@
 |Week #9|Copywrating; Gathering the entire team and discussing the project process|Install material design and create auth forms|Begin to make the skeleton of a site - "Wireframe": search for templates and build wireframe|Start creating authorization and migrations(tables in backend)| 
 |Week #10|Copywrating; Discuss the failures that the team has|Implement profile, students, teachers pages|Make the wireframe of a landing page, registration and user profiles looking at moodboard|Integrate requests with github api and send it to frontend, Make paginations, get, post forms, | 
 |Week #11|Preparing a project Documentation; Testing the site and recording all bugs|Implement graphics and Quizes in frontend|Start to make an UI of a site: define project colors, fonts, sizes and button styles.|Prepare quizes form for teachers and students| 
-|Week #12|Preparing a project Documentation|Make dark and light modes with other style designs|Begin "coloring" the wireframe with project style|Implement tech debts with maybe new features| 
-|Week #13|Preparing a project presentation|Preparing a project presentation|Discuss design with teammates and work on additional pages and functionalities. Implement them. Make a UX research with potential real users Take surveys.|Preparing a project presentation| 
-|Week #14|Presentation|Presentation|Polish the site. Help coders to implement ready design. Presentation|Presentation| 
+|Week #12|Preparing a project Documentation;  Testing the site and recording all bugs|Make dark and light modes with other style designs|Begin "coloring" the wireframe with project style|Implement tech debts with maybe new features| 
+|Week #13|Preparing a project presentation;  Testing the site and recording all bugs|Preparing a project presentation|Discuss design with teammates and work on additional pages and functionalities. Implement them. Make a UX research with potential real users Take surveys.|Preparing a project presentation| 
+|Week #14|Presentation;  Testing the site and recording all bugs|Presentation|Polish the site. Help coders to implement ready design. Presentation|Presentation| 
 |Week #15|Defend our project successfully|Defend our project successfully|Defend our project successfully|Defend our project successfully| 
  
 ## Shadiyar 
@@ -25,10 +25,10 @@
 |Week #9|Copywrating; Gathering the entire team and discussing the project process| 
 |Week #10|Copywrating; Discuss the failures that the team has| 
 |Week #11|Preparing a project Documentation; Testing the site and recording all bugs| 
-|Week #12|Preparing a project Documentation| 
-|Week #13|Presentation| 
-|Week #14|Documentation| 
-|Week #15|Defend our project| 
+|Week #12|Preparing a project Documentation; Testing the site and recording all bugs| 
+|Week #13|Presentation; Testing the site and recording all bugs| 
+|Week #14|Documentation; Testing the site and recording all bugs| 
+|Week #15|Defend our project successfully| 
  
 ## Zhakhangir 
 |Week|Action| 
@@ -39,9 +39,9 @@
 |Week #10|Implement profile, students, teachers pages| 
 |Week #11|Implement graphics and Quizes in frontend| 
 |Week #12|Make dark and light modes with other style designs| 
-|Week #13|Presentation 
-|Week #14|Documentation 
-|Week #15|Defend our project 
+|Week #13|Presentation| 
+|Week #14|Documentation|
+|Week #15|Defend our project successfully|
  
 ## Merey 
 |Week|Action| 
@@ -56,7 +56,7 @@
 |Week #12|Begin "coloring" the wireframe with project style|
 |Week #13|Discuss design with teammates and work on additional pages and functionalities. Implement them. Make a UX research with potential real users Take surveys.|
 |Week #14|Polish the site. Help coders to implement ready design|
-|Week #15|Defend our project|
+|Week #15|Defend our project successfully|
 
 ## Sergey
 |Week|Action|
@@ -69,4 +69,4 @@
 |Week #12|Implement tech debts with maybe new features|
 |Week #13|Presentation|
 |Week #14|Documentation|
-|Week #15|Defend our project|
+|Week #15|Defend our project successfully|
