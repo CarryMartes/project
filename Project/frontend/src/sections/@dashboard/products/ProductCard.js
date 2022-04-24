@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Box, Card, Link, Typography, Stack } from '@mui/material';
+import { Box, Card, Link, Typography, Stack, Avatar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
 //
 import Label from '../../../components/Label';
 import ColorPreview from '../../../components/ColorPreview';
+import Iconify from 'src/components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +31,7 @@ export default function ShopProductCard({ product }) {
 
   return (
     <Card>
-      <Box sx={{ pt: '100%', position: 'relative' }}>
+      <Box sx={{ pt: '70%', position: 'relative' }}>
         {status && (
           <Label
             variant="filled"
@@ -46,31 +47,27 @@ export default function ShopProductCard({ product }) {
             {status}
           </Label>
         )}
-        <ProductImgStyle alt={name} src={cover} />
+        <Stack position="absolute" top="50%" left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
+          <Avatar sx={{ backgroundColor: '#212B36', height: '100px', width: '100px' }}>
+            {'MDE 102'}
+          </Avatar>
+        </Stack>
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
         <Link to="#" color="inherit" underline="hover" component={RouterLink}>
           <Typography variant="subtitle2" noWrap>
-            {name}
+            {'Personal development'}
           </Typography>
         </Link>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <ColorPreview colors={colors} />
           <Typography variant="subtitle1">
-            <Typography
-              component="span"
-              variant="body1"
-              sx={{
-                color: 'text.disabled',
-                textDecoration: 'line-through'
-              }}
-            >
-              {priceSale && fCurrency(priceSale)}
-            </Typography>
-            &nbsp;
-            {fCurrency(price)}
+            <Stack display="flex" alignItems="center" flexDirection="row">
+              <Iconify icon="openmoji:man-student-light-skin-tone" width="20px" height="20px" />
+              {12}
+            </Stack>
           </Typography>
         </Stack>
       </Stack>
