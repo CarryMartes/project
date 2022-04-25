@@ -20,5 +20,6 @@ export const signUp = async (body) => {
 export const login = async (body) => {
   const res = await apiInstance.post(endpoints.login, body);
   store.set('token', res.data.access);
+  store.set('refresh_token', res.data.refresh);
   return res.data;
 };

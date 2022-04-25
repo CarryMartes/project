@@ -30,11 +30,14 @@ export default function RegisterForm() {
   const navigate = useNavigate();
 
   const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string()
+    first_name: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('First name required'),
-    lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Last name required'),
+    last_name: Yup.string()
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Last name required'),
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
     nickname: Yup.string().required('Please fill github nickname'),
     password: Yup.string().required('Password is required')
@@ -42,8 +45,8 @@ export default function RegisterForm() {
 
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       email: '',
       password: '',
       nickname: ''
@@ -87,17 +90,17 @@ export default function RegisterForm() {
             <TextField
               fullWidth
               label="First name"
-              {...getFieldProps('firstName')}
-              error={Boolean(touched.firstName && errors.firstName)}
-              helperText={touched.firstName && errors.firstName}
+              {...getFieldProps('first_name')}
+              error={Boolean(touched.first_name && errors.first_name)}
+              helperText={touched.first_name && errors.first_name}
             />
 
             <TextField
               fullWidth
               label="Last name"
-              {...getFieldProps('lastName')}
-              error={Boolean(touched.lastName && errors.lastName)}
-              helperText={touched.lastName && errors.lastName}
+              {...getFieldProps('last_name')}
+              error={Boolean(touched.last_name && errors.last_name)}
+              helperText={touched.last_name && errors.last_name}
             />
           </Stack>
 

@@ -1,22 +1,20 @@
-import { useFormik } from 'formik';
+import { Formik, FormikProvider, useFormik } from 'formik';
 import { useState } from 'react';
 // material
-import { Container, Stack, Typography } from '@mui/material';
+import { Button, Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import {
-  ProductSort,
-  ProductList,
-  ProductCartWidget,
-  ProductFilterSidebar
-} from '../sections/@dashboard/products';
+import { ProductSort, ProductList, ProductFilterSidebar } from '../sections/@dashboard/products';
 //
 import PRODUCTS from '../_mocks_/products';
+import Iconify from 'src/components/Iconify';
+import AddDialog from 'src/components/products/AddDialog';
 
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
   const [openFilter, setOpenFilter] = useState(false);
+  const [dialog, setDialog] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -46,12 +44,26 @@ export default function EcommerceShop() {
     resetForm();
   };
 
+  const handleDialogClose = () => {
+    setDialog(false);
+  };
+
   return (
     <Page title="Dashboard: Products">
       <Container>
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Products
-        </Typography>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+          <Typography variant="h4" gutterBottom>
+            Subjects
+          </Typography>
+          <Button
+            variant="contained"
+            to="#"
+            startIcon={<Iconify icon="eva:plus-fill" />}
+            onClick={() => setDialog(true)}
+          >
+            Add subject
+          </Button>
+        </Stack>
 
         <Stack
           direction="row"
@@ -73,7 +85,10 @@ export default function EcommerceShop() {
         </Stack>
 
         <ProductList products={PRODUCTS} />
-        <ProductCartWidget />
+
+        <AddDialog dialog={dialog} handleDialogClose={handleDialogClose} />
+
+        {/* <ProductCartWidget /> */}
       </Container>
     </Page>
   );

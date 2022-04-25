@@ -45,7 +45,7 @@ export default function LoginForm() {
             type: actions.IS_AUTH,
             payload: true
           });
-          navigate('/dashboard/app');
+          navigate('/dashboard/products');
         })
         .catch((err) => {
           if (err.response.status === 401) {
