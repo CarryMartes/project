@@ -1,10 +1,12 @@
 from django.http import JsonResponse
-from rest_framework import generics, permissions, mixins
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated  #new here
 import requests
+from rest_framework import status
 from .models import Students, Teachers
-from .serializers import RegisterSerializer, UserSerializer
+from .serializers import LogoutSerializer, RegisterSerializer, UserSerializer
+from django.forms.models import model_to_dict
 
 def register(request):
     serializer = UserSerializer(data=request.data)
@@ -12,6 +14,40 @@ def register(request):
     return Response({
         "message": 'User created'
     })
+
+class LogoutAPIView(generics.GenericAPIView):
+    serializer_class = LogoutSerializer
+
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UserProfile(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, request):
+        try:
+            teacher = Teachers.objects.get(user=request.user)
+            if teacher is not None:
+                return JsonResponse({
+                    "nickname": teacher.nickname,
+                    "email": request.user.email,
+                    "status": "teacher"
+                })    
+        except Teachers.DoesNotExist:
+            student = Students.objects.get(user=request.user)
+            return JsonResponse({
+                "nickname": student.nickname,
+                "email": request.user.email,
+                "status": "student"
+            })
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class RegisterApi(generics.GenericAPIView):
     serializer_class = RegisterSerializer
