@@ -14,15 +14,13 @@ from django.forms.models import model_to_dict
 class SubjectsView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated, )
     def get(self, request):
-        if request.GET.get('code'):
-            code = request.GET['code']
-            subjects = Subjects.objects.filter(
-                Q(code__contains=code)
-            )
-        else:
-            subjects = Subjects.objects.all()
+        teacherSubjects = SubjectTeacherRelation.objects.filter(teacher=Teachers.objects.get(user=request.user))
+        subjects = []
+        for teacherSub in teacherSubjects:
+            subjects.append(teacherSub.subject.code)
+        new_subjects = Subjects.objects.exclude(code__in=subjects)
         return JsonResponse({
-            "data": list(subjects.values())
+            "data": list(new_subjects.values())
         })
 
 class UserSubjectsView(generics.GenericAPIView):
@@ -49,7 +47,13 @@ class UserSubjectsView(generics.GenericAPIView):
             "subjects": subjects
         })
     def post(self, request):
-        print(request.data)
+        courses = request.data['courses']
+        for i in courses:
+            subject = Subjects.objects.get(code=i)
+            relation = SubjectTeacherRelation()
+            relation.subject = subject
+            relation.teacher = Teachers.objects.get(user=request.user)
+            relation.save()
         return JsonResponse({
             "data": {}
         })
