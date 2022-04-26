@@ -2,6 +2,7 @@
 * 	Preparing a project presentation
 * 	Testing the site and recording all bugs
 * 	Learning the Latex
+* 	Writing project documentation
 # Zhakhangir Bayanov
 
 # Meiram Merey
