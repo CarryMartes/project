@@ -10,6 +10,16 @@ class Subjects(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+class Repositories(models.Model):
+    name = models.CharField(max_length=300)
+    description = models.TextField()
+    subject = models.ForeignKey(Subjects, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.name
+
+
         
 class SubjectStudentRelation(models.Model):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 import json
 from django.http import JsonResponse
 
-from .models import SubjectStudentRelation, SubjectTeacherRelation, Subjects
+from .models import Repositories, SubjectStudentRelation, SubjectTeacherRelation, Subjects
 from django.db.models import Q
 from auth.models import Teachers,Students
 from rest_framework import generics
@@ -35,7 +35,8 @@ class UserSubjectsView(generics.GenericAPIView):
                 crt_subject = Subjects.objects.get(id=teacher.subject.id)
                 subjects.append({
                     "subject": model_to_dict(crt_subject),
-                    "students": len(SubjectStudentRelation.objects.filter(subject=crt_subject))
+                    "students": len(SubjectStudentRelation.objects.filter(subject=crt_subject)),
+                    "repositories": len(Repositories.objects.filter(subject=crt_subject))
                 })
             
             return JsonResponse({
@@ -45,19 +46,39 @@ class UserSubjectsView(generics.GenericAPIView):
         students = SubjectStudentRelation.objects.filter(student=crt_student)
         subjects = []
         for teacher in students:
-            subjects.append(model_to_dict(Subjects.objects.get(id=teacher.subject.id)))
+            subjects.append({
+                "subject": model_to_dict(Subjects.objects.get(id=teacher.subject.id)),
+                "repositories": len(Repositories.objects.filter(subject=crt_subject))
+            })
         
         return JsonResponse({
             "subjects": subjects
         })
     def post(self, request):
         courses = request.data['courses']
-        for i in courses:
-            subject = Subjects.objects.get(code=i)
+        for course in courses:
+            subject = Subjects.objects.get(code=course['code'])
             relation = SubjectTeacherRelation()
             relation.subject = subject
             relation.teacher = Teachers.objects.get(user=request.user)
             relation.save()
         return JsonResponse({
             "data": {}
+        })
+
+class RepositoriesView(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated, )
+    def post(self, request):
+        subject = Subjects.objects.get(id=request.data['id'])
+        repository = Repositories()
+        repository.name = request.data['name']
+        repository.description = request.data['description']
+        repository.subject = subject
+        repository.save()
+        return JsonResponse({"message": "Succesfully created"})
+    def get(self, request):
+        subject = Subjects.objects.get(id=request.GET.get('id'))
+        repositories = Repositories.objects.filter(subject=subject).values()
+        return JsonResponse({
+            "repos": list(repositories)
         })
