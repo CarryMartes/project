@@ -1,20 +1,23 @@
 import { Formik, FormikProvider, useFormik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // material
 import { Button, Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 import { ProductSort, ProductList, ProductFilterSidebar } from '../sections/@dashboard/products';
 //
-import PRODUCTS from '../_mocks_/products';
 import Iconify from 'src/components/Iconify';
 import AddDialog from 'src/components/products/AddDialog';
+import { userSubjects } from 'src/shared/api/request/subjects';
+import { useSelector } from 'react-redux';
 
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
   const [openFilter, setOpenFilter] = useState(false);
   const [dialog, setDialog] = useState(false);
+  const user = useSelector((state) => state.authReducer['userProfile']);
+  const [subjects, setSubjects] = useState([]);
 
   const formik = useFormik({
     initialValues: {
@@ -47,6 +50,14 @@ export default function EcommerceShop() {
   const handleDialogClose = () => {
     setDialog(false);
   };
+
+  useEffect(() => {
+    userSubjects({
+      status: user.status
+    }).then((res) => {
+      setSubjects(res.subjects);
+    });
+  }, []);
 
   return (
     <Page title="Dashboard: Products">
@@ -84,7 +95,7 @@ export default function EcommerceShop() {
           </Stack>
         </Stack>
 
-        <ProductList products={PRODUCTS} />
+        <ProductList products={subjects} />
 
         <AddDialog dialog={dialog} handleDialogClose={handleDialogClose} />
 

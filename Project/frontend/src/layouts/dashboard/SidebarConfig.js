@@ -8,7 +8,7 @@ const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 const sidebarConfig = [
   {
     title: 'subjects',
-    path: '/dashboard/products',
+    path: '/dashboard/subjects',
     icon: getIcon('eva:shopping-bag-fill')
   },
   {

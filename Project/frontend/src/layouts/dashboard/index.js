@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 //
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
+import { userProfile } from 'src/shared/api/request/users';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions } from 'src/shared/store/users/constants';
 
 // ----------------------------------------------------------------------
 
@@ -34,14 +37,27 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 export default function DashboardLayout() {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.authReducer['userProfile']);
+
+  useEffect(() => {
+    userProfile().then((res) => {
+      dispatch({
+        type: actions.USER_PROFILE,
+        payload: res
+      });
+    });
+  }, []);
 
   return (
     <RootStyle>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-      <MainStyle>
-        <Outlet />
-      </MainStyle>
+      {user && (
+        <MainStyle>
+          <Outlet />
+        </MainStyle>
+      )}
     </RootStyle>
   );
 }

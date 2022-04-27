@@ -27,7 +27,7 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { name, cover, price, colors, status, priceSale } = product;
+  const { students, subject } = product;
 
   return (
     <Card>
@@ -49,7 +49,7 @@ export default function ShopProductCard({ product }) {
         )}
         <Stack position="absolute" top="50%" left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
           <Avatar sx={{ backgroundColor: '#212B36', height: '100px', width: '100px' }}>
-            {'MDE 102'}
+            {subject.code}
           </Avatar>
         </Stack>
       </Box>
@@ -57,16 +57,16 @@ export default function ShopProductCard({ product }) {
       <Stack spacing={2} sx={{ p: 3 }}>
         <Link to="#" color="inherit" underline="hover" component={RouterLink}>
           <Typography variant="subtitle2" noWrap>
-            {'Personal development'}
+            {subject.name}
           </Typography>
         </Link>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <ColorPreview colors={colors} />
+          {/* <ColorPreview colors={colors} /> */}
           <Typography variant="subtitle1">
             <Stack display="flex" alignItems="center" flexDirection="row">
               <Iconify icon="openmoji:man-student-light-skin-tone" width="20px" height="20px" />
-              {12}
+              {students}
             </Stack>
           </Typography>
         </Stack>

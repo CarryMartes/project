@@ -17,6 +17,12 @@ export function authReducer(state = authState, action) {
         isAuth: action.payload
       };
     }
+    case actions.USER_PROFILE: {
+      return {
+        ...state,
+        userProfile: action.payload
+      };
+    }
     default:
       return state;
   }

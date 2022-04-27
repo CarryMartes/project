@@ -5,5 +5,6 @@ export const authState = {
   login: {
     isStudent: true
   },
+  userProfile: null,
   isAuth: window.localStorage.getItem('token')
 };

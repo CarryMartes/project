@@ -13,3 +13,10 @@ export const changeAuth = (payload) => {
     payload
   };
 };
+
+export const userProfile = (payload) => {
+  return {
+    type: actions.USER_PROFILE,
+    payload
+  };
+};

@@ -4,6 +4,7 @@ import { apiInstance } from './index';
 const endpoints = {
   userList: '/users/',
   signUp: 'registration/',
+  userProfile: 'userProfile/',
   login: 'login/'
 };
 
@@ -21,5 +22,10 @@ export const login = async (body) => {
   const res = await apiInstance.post(endpoints.login, body);
   store.set('token', res.data.access);
   store.set('refresh_token', res.data.refresh);
+  return res.data;
+};
+
+export const userProfile = async () => {
+  const res = await apiInstance.get(endpoints.userProfile);
   return res.data;
 };

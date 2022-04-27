@@ -33,6 +33,7 @@ export default function AddDialog({ dialog, handleDialogClose }) {
       setCourses(res.data);
     });
   }, [dialog]);
+
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
 
   return (
@@ -52,7 +53,7 @@ export default function AddDialog({ dialog, handleDialogClose }) {
                 options={courses}
                 multiple
                 sx={{ width: '100%', marginTop: '20px' }}
-                getOptionLabel={(result) => `${result.name}`}
+                getOptionLabel={(result) => `${result.code}`}
                 onChange={(_, value) => {
                   setSelected(value);
                 }}
