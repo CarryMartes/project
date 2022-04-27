@@ -21,7 +21,8 @@ from django.conf.urls import url, include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('auth.urls')),
-    url(r'^api/', include('project.urls'))
+    url(r'^api/', include('project.urls')),
+    url(r"^accounts/", include("allauth.urls")),
 ]
 
 if settings.DEBUG:

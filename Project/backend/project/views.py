@@ -27,12 +27,16 @@ class UserSubjectsView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request): 
-        if request.data['status'] == 'teacher':
+        if request.GET.get('status') == 'teacher':
             crt_teacher = Teachers.objects.get(user=request.user)
             teachers = SubjectTeacherRelation.objects.filter(teacher=crt_teacher)
             subjects = []
             for teacher in teachers:
-                subjects.append(model_to_dict(Subjects.objects.get(id=teacher.subject.id)))
+                crt_subject = Subjects.objects.get(id=teacher.subject.id)
+                subjects.append({
+                    "subject": model_to_dict(crt_subject),
+                    "students": len(SubjectStudentRelation.objects.filter(subject=crt_subject))
+                })
             
             return JsonResponse({
                 "subjects": subjects

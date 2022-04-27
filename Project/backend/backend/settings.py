@@ -44,7 +44,12 @@ INSTALLED_APPS = [
     'auth.apps.AuthConfig',
     'project',
     'rest_framework_simplejwt.token_blacklist',
-    'corsheaders'
+    'django.contrib.sites',
+    'corsheaders',
+    "allauth", 
+    "allauth.account", 
+    "allauth.socialaccount", 
+    "allauth.socialaccount.providers.github", 
 ]
 
 REST_FRAMEWORK = {
@@ -55,6 +60,10 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+AUTHENTICATION_BACKENDS = (
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +81,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        "DIRS": [str(BASE_DIR.joinpath("templates"))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,3 +164,9 @@ SIMPLE_JWT = {
 'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
 'REFRESH_TOKEN_LIFETIME': timedelta(days=20)
 }
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = "none"
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_ON_GET = True
+REST_USE_JWT = True

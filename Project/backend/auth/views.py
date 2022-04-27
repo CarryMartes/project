@@ -7,6 +7,7 @@ from rest_framework import status
 from .models import Students, Teachers
 from .serializers import LogoutSerializer, RegisterSerializer, UserSerializer
 from django.forms.models import model_to_dict
+from django.views.generic import TemplateView
 
 def register(request):
     serializer = UserSerializer(data=request.data)
@@ -72,8 +73,12 @@ class RegisterApi(generics.GenericAPIView):
             "message": "User Created Successfully.  Now perform Login",
         })
 
-# token: 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
+# token: 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
+# secret: a8d22304b9b8a4eb8b3fe7671b679ddaa7cc17ff
 def getUsersList(request):
     username = request.GET['username']
-    response = requests.get("https://api.github.com/users/" + username, auth=('CarryMartes','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'))
+    response = requests.get("https://api.github.com/users/" + username, auth=('CarryMartes','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'))
     return JsonResponse(response.json())
+
+class Home(TemplateView):
+    template_name = "home.html"
