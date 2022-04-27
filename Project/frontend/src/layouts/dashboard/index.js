@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -54,9 +54,11 @@ export default function DashboardLayout() {
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       {user && (
-        <MainStyle>
-          <Outlet />
-        </MainStyle>
+        <Suspense fallback={<div>loading...</div>}>
+          <MainStyle>
+            <Outlet />
+          </MainStyle>
+        </Suspense>
       )}
     </RootStyle>
   );

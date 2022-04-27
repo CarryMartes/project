@@ -48,12 +48,12 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName 
       sx={{
         ...(numSelected > 0 && {
           color: 'primary.main',
-          bgcolor: 'primary.lighter'
+          bgcolor: 'primary.main'
         })
       }}
     >
       {numSelected > 0 ? (
-        <Typography component="div" variant="subtitle1">
+        <Typography component="div" variant="subtitle1" color="white">
           {numSelected} selected
         </Typography>
       ) : (
@@ -72,7 +72,7 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
-            <Iconify icon="eva:trash-2-fill" />
+            <Iconify color="red" icon="eva:trash-2-fill" />
           </IconButton>
         </Tooltip>
       ) : (

@@ -16,6 +16,6 @@ export const userSubjects = async (params) => {
 };
 
 export const addSubjects = async (params) => {
-  const res = await apiInstance.post(endpoints.subjects, { params });
+  const res = await apiInstance.post(endpoints.user_subjects, { ...params });
   return Promise.resolve(res);
 };

@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 //
 import Login from './pages/Login';
 import Register from './pages/Register';
-import DashboardApp from './pages/DashboardApp';
-import Products from './pages/Products';
-import Blog from './pages/Blog';
-import User from './pages/User';
 import NotFound from './pages/Page404';
 import { useSelector } from 'react-redux';
+import { lazy } from 'react';
+
+const Repositories = lazy(() => import('./pages/Repositories'));
+const DashboardApp = lazy(() => import('./pages/DashboardApp'));
+const Products = lazy(() => import('./pages/Products'));
+const User = lazy(() => import('./pages/User'));
+const Blog = lazy(() => import('./pages/Blog'));
 
 // ----------------------------------------------------------------------
 
@@ -29,6 +32,7 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'subjects', element: <Products /> },
+        { path: 'repositories', element: <Repositories /> },
         { path: 'blog', element: <Blog /> }
       ]
     },

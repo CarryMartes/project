@@ -27,7 +27,7 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { students, subject } = product;
+  const { students, repositories, subject } = product;
 
   return (
     <Card>
@@ -55,7 +55,7 @@ export default function ShopProductCard({ product }) {
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Link to="#" color="inherit" underline="hover" component={RouterLink}>
+        <Link to="/dashboard/repositories" color="inherit" underline="hover" component={RouterLink}>
           <Typography variant="subtitle2" noWrap>
             {subject.name}
           </Typography>
@@ -65,7 +65,14 @@ export default function ShopProductCard({ product }) {
           {/* <ColorPreview colors={colors} /> */}
           <Typography variant="subtitle1">
             <Stack display="flex" alignItems="center" flexDirection="row">
-              <Iconify icon="openmoji:man-student-light-skin-tone" width="20px" height="20px" />
+              <Iconify color="#4d5461" icon="ri:git-repository-line" width="20px" height="20px" />
+              {repositories}
+              <Iconify
+                icon="openmoji:man-student-light-skin-tone"
+                width="20px"
+                height="20px"
+                sx={{ marginLeft: '20px' }}
+              />
               {students}
             </Stack>
           </Typography>

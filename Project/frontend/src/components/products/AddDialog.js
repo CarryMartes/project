@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { Form, Formik, FormikProvider, useFormik } from 'formik';
 import { useState, useEffect } from 'react';
-import { getSubjects } from 'src/shared/api/request/subjects';
+import { addSubjects, getSubjects } from 'src/shared/api/request/subjects';
 
 export default function AddDialog({ dialog, handleDialogClose }) {
   const [courses, setCourses] = useState([]);
@@ -24,7 +24,15 @@ export default function AddDialog({ dialog, handleDialogClose }) {
       courseName: ''
     },
     onSubmit: function () {
-      return;
+      addSubjects({
+        courses: selected
+      })
+        .then((res) => {
+          console.log('RES success');
+        })
+        .finally(() => {
+          handleDialogClose();
+        });
     }
   });
   useEffect(() => {
@@ -86,7 +94,7 @@ export default function AddDialog({ dialog, handleDialogClose }) {
         </FormikProvider>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleDialogClose} autoFocus>
+        <Button onClick={handleSubmit} autoFocus>
           Save
         </Button>
       </DialogActions>
