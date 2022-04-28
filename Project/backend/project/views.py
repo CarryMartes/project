@@ -1,14 +1,14 @@
 import json
 from django.http import JsonResponse
-
+from .serializers import SubjectSerializer
 from .models import Repositories, SubjectStudentRelation, SubjectTeacherRelation, Subjects
 from django.db.models import Q
 from auth.models import Teachers,Students
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated  #new here
 from rest_framework.decorators import action
-from django.core import serializers
 from django.forms.models import model_to_dict
+import requests as rqst
 
 # Create your views here.
 class SubjectsView(generics.GenericAPIView):
@@ -22,6 +22,18 @@ class SubjectsView(generics.GenericAPIView):
         return JsonResponse({
             "data": list(new_subjects.values())
         })
+
+class SingleSubjectView(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated, )
+    def getSubject(self, pk):
+        subject = Subjects.objects.get(id=pk)
+        return JsonResponse({
+            "subject": model_to_dict(subject),
+            "students": len(SubjectStudentRelation.objects.filter(subject=subject)),
+            "repositories": len(Repositories.objects.filter(subject=subject))
+        })
+    def get(self, request, pk):
+        return self.getSubject(pk)
 
 class UserSubjectsView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
@@ -75,7 +87,10 @@ class RepositoriesView(generics.GenericAPIView):
         repository.description = request.data['description']
         repository.subject = subject
         repository.save()
-        return JsonResponse({"message": "Succesfully created"})
+        res = rqst.post('https://api.github.com/orgs/diplom-project/repos', data=json.dumps({
+            'name': request.data['name']
+        }), auth=('CarryMartes','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'),  headers={'accept': 'application/json'})
+        return JsonResponse({"message": res.json()})
     def get(self, request):
         subject = Subjects.objects.get(id=request.GET.get('id'))
         repositories = Repositories.objects.filter(subject=subject).values()
