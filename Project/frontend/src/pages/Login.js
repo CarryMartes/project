@@ -41,7 +41,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Login() {
-  const status = useSelector((state) => state.authReducer['login'].isStudent);
+  const status = useSelector((state) => state.user['login'].isStudent);
   return (
     <RootStyle title="Login | Git tech">
       <AuthLayout>

@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   Stack,
   Typography,
@@ -7,112 +6,113 @@ import {
   TableContainer,
   Table,
   TableBody,
+  IconButton,
   TableRow,
+  Button,
   TableCell,
-  Avatar,
   Checkbox
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CustomButton from 'src/components/AddButton';
 import Page from 'src/components/Page';
 import Scrollbar from 'src/components/Scrollbar';
-import { UserListToolbar } from 'src/sections/@dashboard/user';
+import { UserListHead, UserListToolbar, UserMoreMenu } from 'src/sections/@dashboard/user';
 import USERLIST from '../_mocks_/user';
 import { filter } from 'lodash';
+import { getSubject } from 'src/shared/api/request/subjects';
+import { useParams } from 'react-router-dom';
+import { getRepositories } from 'src/shared/api/request/repos';
+import SearchNotFound from 'src/components/SearchNotFound';
+import Iconify from 'src/components/Iconify';
 
-function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-  return 0;
-}
+const TABLE_HEAD = [
+  { id: 'id', label: 'ID', alignRight: false },
+  { id: 'name', label: 'Name', alignRight: false },
+  { id: 'description', label: 'Description', alignRight: false },
+  { id: 'actions' }
+];
 
-function getComparator(order, orderBy) {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
-}
-
-function applySortFilter(array, comparator, query) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) return order;
-    return a[1] - b[1];
-  });
-  if (query) {
-    return filter(array, (_user) => _user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+const MENU_ITEMS = [
+  {
+    icon: 'carbon:add-alt',
+    text: 'Add students',
+    key: 'students',
+    extra: {
+      sx: { color: 'text.primary' }
+    }
+  },
+  {
+    icon: 'akar-icons:link-out',
+    text: 'Open in github',
+    key: 'github',
+    extra: {
+      sx: { color: 'text.primary' }
+    }
+  },
+  {
+    icon: 'eva:trash-2-outline',
+    text: 'Delete',
+    extra: {
+      // component: { RouterLink },
+      to: '#',
+      sx: { color: 'red' }
+    }
   }
-  return stabilizedThis.map((el) => el[0]);
-}
+];
 
 const Repositories = () => {
-  const [page, setPage] = useState(0);
-  const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
-  const [orderBy, setOrderBy] = useState('name');
   const [filterName, setFilterName] = useState('');
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [currentSubject, setCurrentSubject] = useState(null);
+  const [repositories, setRepositories] = useState([]);
+  const [currentOpened, setCurrentOpened] = useState(null);
+  const { id } = useParams();
 
-  const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-  };
+  const menu_items = useMemo(
+    () =>
+      MENU_ITEMS.map((item) => {
+        switch (item.key) {
+          case 'students':
+            item.extra = {
+              ...item.extra,
+              onClick: () => {
+                console.log('HII');
+              }
+            };
+            break;
+          case 'github':
+            item.extra = {
+              ...item.extra,
+              onClick: (event) => {
+                // eslint-disable-next-line no-undef
+                window.open(`${process.env.REACT_APP_GITHUB_LINK + currentOpened.name}`, '_blank');
+              }
+            };
+            break;
+          default:
+            break;
+        }
+        return item;
+      }),
+    [currentOpened]
+  );
 
-  const handleSelectAllClick = (event) => {
-    if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.name);
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
-  };
+  useEffect(() => {
+    getSubject(id).then((res) => {
+      setCurrentSubject(res);
+    });
+    getRepositories({ id }).then((res) => {
+      setRepositories(res.repos);
+    });
+  }, []);
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-    setSelected(newSelected);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  const handleFilterByName = (event) => {
-    setFilterName(event.target.value);
-  };
-
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
-
-  const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
-
-  const isUserNotFound = filteredUsers.length === 0;
   return (
     <Page title="Repostitories">
       <Container>
         <Stack alignItems="center" direction="row" justifyContent="space-between" mb={5}>
-          <Typography variant="h4">Repostitories</Typography>
+          <Typography variant="h4">
+            {currentSubject && currentSubject.subject.name + "'s repositories"}
+          </Typography>
           <CustomButton
             value="Add repository"
             events={{
@@ -126,49 +126,60 @@ const Repositories = () => {
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
+                <UserListHead
+                  checkbox={false}
+                  headLabel={TABLE_HEAD}
+                  rowCount={USERLIST.length}
+                  onRequestSort={() => null}
+                  numSelected={selected.length}
+                />
                 <TableBody>
-                  {filteredUsers
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
-                      const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                      const isItemSelected = selected.indexOf(name) !== -1;
+                  {repositories.map((row) => {
+                    const { id, name, description } = row;
+                    const isItemSelected = selected.indexOf(name) !== -1;
 
-                      return (
-                        <TableRow
-                          hover
-                          key={id}
-                          tabIndex={-1}
-                          role="checkbox"
-                          selected={isItemSelected}
-                          aria-checked={isItemSelected}
-                        >
-                          <TableCell padding="checkbox">
-                            <Checkbox
-                              checked={isItemSelected}
-                              onChange={(event) => handleClick(event, name)}
-                            />
-                          </TableCell>
-                          <TableCell align="left">{company}</TableCell>
-                          <TableCell align="left">{role}</TableCell>
-                          <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                        </TableRow>
-                      );
-                    })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
+                    return (
+                      <TableRow
+                        hover
+                        key={id}
+                        tabIndex={-1}
+                        role="checkbox"
+                        selected={isItemSelected}
+                        aria-checked={isItemSelected}
+                      >
+                        <TableCell align="left">{id}</TableCell>
+                        <TableCell align="left">
+                          <Typography variant="subtitle2" sx={{ textDecoration: 'underline' }}>
+                            {name}
+                          </Typography>
+                        </TableCell>
+                        <TableCell align="left">{description}</TableCell>
+                        <TableCell align="right">
+                          <UserMoreMenu
+                            menuList={menu_items}
+                            triggerOpen={() => {
+                              setCurrentOpened(row);
+                              console.log(row, 'Row');
+                            }}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+                {repositories.length === 0 && (
+                  <TableBody>
+                    <TableRow>
+                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                        <SearchNotFound
+                          searchQuery={filterName}
+                          title=""
+                          descr="The course repostiroty is empty"
+                        />
+                      </TableCell>
                     </TableRow>
-                  )}
-                </TableBody>
-                {/* {isUserNotFound && (
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                      <SearchNotFound searchQuery={filterName} />
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              )} */}
+                  </TableBody>
+                )}
               </Table>
             </TableContainer>
           </Scrollbar>

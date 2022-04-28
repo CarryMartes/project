@@ -19,3 +19,8 @@ export const addSubjects = async (params) => {
   const res = await apiInstance.post(endpoints.user_subjects, { ...params });
   return Promise.resolve(res);
 };
+
+export const getSubject = async (id) => {
+  const res = await apiInstance.get(endpoints.subjects + `${id}`);
+  return res.data;
+};

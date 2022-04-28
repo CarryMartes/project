@@ -26,7 +26,7 @@ export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const status = useSelector((state) => state.authReducer['signup'].isStudent);
+  const status = useSelector((state) => state.user['signup'].isStudent);
   const navigate = useNavigate();
 
   const RegisterSchema = Yup.object().shape({

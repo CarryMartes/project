@@ -10,14 +10,19 @@ import Iconify from 'src/components/Iconify';
 import AddDialog from 'src/components/products/AddDialog';
 import { userSubjects } from 'src/shared/api/request/subjects';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setCurrentSubject } from 'src/shared/store/subjects/actions';
+import { useDispatch } from 'react-redux';
 
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
   const [openFilter, setOpenFilter] = useState(false);
   const [dialog, setDialog] = useState(false);
-  const user = useSelector((state) => state.authReducer['userProfile']);
+  const user = useSelector((state) => state.user['userProfile']);
   const [subjects, setSubjects] = useState([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -59,6 +64,11 @@ export default function EcommerceShop() {
     });
   }, []);
 
+  const subjectLink = (currentSubject) => {
+    dispatch(setCurrentSubject(currentSubject));
+    navigate(`/dashboard/repositories/${currentSubject.subject.id}`);
+  };
+
   return (
     <Page title="Dashboard: Products">
       <Container>
@@ -95,7 +105,7 @@ export default function EcommerceShop() {
           </Stack>
         </Stack>
 
-        <ProductList products={subjects} />
+        <ProductList products={subjects} subjectLink={subjectLink} />
 
         <AddDialog dialog={dialog} handleDialogClose={handleDialogClose} />
 

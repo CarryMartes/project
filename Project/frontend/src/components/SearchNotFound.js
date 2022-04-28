@@ -8,15 +8,19 @@ SearchNotFound.propTypes = {
   searchQuery: PropTypes.string
 };
 
-export default function SearchNotFound({ searchQuery = '', ...other }) {
+export default function SearchNotFound({
+  searchQuery = '',
+  title = 'Not found',
+  descr = 'No results found for',
+  ...other
+}) {
   return (
     <Paper {...other}>
       <Typography gutterBottom align="center" variant="subtitle1">
-        Not found
+        {title}
       </Typography>
       <Typography variant="body2" align="center">
-        No results found for &nbsp;
-        <strong>&quot;{searchQuery}&quot;</strong>. Try checking for typos or using complete words.
+        {descr} &nbsp;
       </Typography>
     </Paper>
   );

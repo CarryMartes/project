@@ -3,8 +3,6 @@ import { Link as RouterLink } from 'react-router-dom';
 // material
 import { Box, Card, Link, Typography, Stack, Avatar } from '@mui/material';
 import { styled } from '@mui/material/styles';
-// utils
-import { fCurrency } from '../../../utils/formatNumber';
 //
 import Label from '../../../components/Label';
 import ColorPreview from '../../../components/ColorPreview';
@@ -26,7 +24,7 @@ ShopProductCard.propTypes = {
   product: PropTypes.object
 };
 
-export default function ShopProductCard({ product }) {
+export default function ShopProductCard({ product, subjectLink }) {
   const { students, repositories, subject } = product;
 
   return (
@@ -55,11 +53,15 @@ export default function ShopProductCard({ product }) {
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Link to="/dashboard/repositories" color="inherit" underline="hover" component={RouterLink}>
-          <Typography variant="subtitle2" noWrap>
-            {subject.name}
-          </Typography>
-        </Link>
+        <Typography
+          variant="subtitle2"
+          noWrap
+          underline="hover"
+          sx={{ cursor: 'pointer', textDecoration: 'underline' }}
+          onClick={() => subjectLink(product)}
+        >
+          {subject.name}
+        </Typography>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           {/* <ColorPreview colors={colors} /> */}

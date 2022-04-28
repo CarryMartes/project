@@ -19,7 +19,9 @@ const Blog = lazy(() => import('./pages/Blog'));
 // ----------------------------------------------------------------------
 
 function PrivateRoute({ component, ...rest }) {
-  const isAuthed = useSelector((state) => state.authReducer['isAuth']);
+  const isAuthed = useSelector((state) => {
+    return state.user['isAuth'];
+  });
   return isAuthed ? component : <Navigate to="/login" />;
 }
 
@@ -32,7 +34,7 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'subjects', element: <Products /> },
-        { path: 'repositories', element: <Repositories /> },
+        { path: 'repositories/:id', element: <Repositories /> },
         { path: 'blog', element: <Blog /> }
       ]
     },

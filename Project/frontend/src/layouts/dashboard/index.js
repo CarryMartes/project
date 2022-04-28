@@ -38,7 +38,7 @@ const MainStyle = styled('div')(({ theme }) => ({
 export default function DashboardLayout() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.authReducer['userProfile']);
+  const user = useSelector((state) => state.user['userProfile']);
 
   useEffect(() => {
     userProfile().then((res) => {
